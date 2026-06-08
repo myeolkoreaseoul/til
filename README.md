@@ -11,19 +11,18 @@
 학습 흐름은 다음과 같다.
 
 ```text
-Discover -> Check -> Scan -> Analyze -> Document -> Explain -> Connect -> Close
+Normalize -> Study Kernel -> Publish Gate
 ```
 
 | 단계 | 산출물 |
 |---|---|
-| Check | 게시 적합성 점검 |
-| Scan | 읽을 가치와 우선순위 |
-| Analyze | 깊은 분석 |
-| Document | GitHub Issue 본문 |
-| Explain | 쉬운 설명 댓글 |
-| Connect | 관련 이슈 연결 |
+| Normalize | source lock |
+| Study Kernel | 분석문, GitHub Issue 본문, 쉬운 설명 댓글 |
+| Publish Gate | related 연결, reading-list 갱신, 검증 통과 |
 
-세부 규칙은 `CLAUDE.md`와 `.claude/skills/`를 따른다.
+새 자료는 `/study <url-or-message>` 하나로만 처리한다.
+
+세부 규칙은 `CLAUDE.md`와 `.claude/skills/study.md`를 따른다.
 
 ## 검증
 

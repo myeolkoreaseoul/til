@@ -30,12 +30,32 @@
 
 ## 스킬
 
+### Study (`/study`)
+
+새 학습 자료는 반드시 이 진입점으로 처리한다.
+
+- 위치: `.claude/skills/study.md`
+- 사용 시점: 모든 URL, 글, 제품, 저장소, 논문, 영상, 아이디어 입력
+- 원칙: source lock 없이 이슈를 만들지 않는다.
+- 원칙: YouTube는 안정적인 digest artifact가 없으면 이슈를 만들지 않는다.
+- 원칙: LinkedIn, Threads, 블로그 공유글은 원자료를 먼저 찾는다.
+
+`/study`가 아래 내부 절차를 호출한다.
+
+```text
+Normalize -> Study Kernel -> Publish Gate
+```
+
+에이전트는 `/study-gate`, `/study-scan`, `/study-analysis`, `/study-to-issue`, `/study-explain`를 사용자에게 직접 호출하라고 안내하지 않는다.
+
+아래 스킬은 `/study` 내부 호환 절차로만 쓴다.
+
 ### Study Gate (`/study-gate`)
 
 자료를 게시해도 되는지 먼저 점검한다.
 
 - 위치: `.claude/skills/study-gate.md`
-- 사용 시점: 이슈 생성 전 내부 점검
+- 사용 시점: `/study` 내부 점검
 - 다음 단계: `/study-scan`, `/study-analysis`, `/study-to-issue`
 
 ### Study Scan (`/study-scan`)
@@ -43,46 +63,41 @@
 자료를 깊게 다룰 가치가 있는지 빠르게 판별한다.
 
 - 위치: `.claude/skills/study-scan.md`
-- 사용 시점: 논문, 개념, 프로젝트, 릴리스, 글, 영상의 초기 판별
+- 사용 시점: `/study` 내부 초기 판별
 
 ### Study Analysis (`/study-analysis`)
 
 게시 적합성 점검을 통과한 자료를 6단계로 분석한다.
 
 - 위치: `.claude/skills/study-analysis.md`
-- 사용 시점: 이슈 생성 전 깊은 분석
+- 사용 시점: `/study` 내부 깊은 분석
 
 ### Study to Issue (`/study-to-issue`)
 
 분석 결과를 GitHub Issue로 바꾼다.
 
 - 위치: `.claude/skills/study-to-issue.md`
-- 사용 시점: 검색과 연결이 가능한 학습 단위를 만들 때
+- 사용 시점: `/study` 내부 이슈 변환
 
 ### Study Explain (`/study-explain`)
 
 어려운 본문을 쉬운 설명 댓글로 다시 쓴다.
 
 - 위치: `.claude/skills/study-explain.md`
-- 사용 시점: 이슈 생성 직후
+- 사용 시점: `/study` 내부 설명 댓글 생성
 - 원칙: 본문만 만들고 끝내지 않는다.
 
 ## Workflow
 
 ```text
-Discover -> Check -> Scan -> Analyze -> Document -> Explain -> Connect -> Close
+Normalize -> Study Kernel -> Publish Gate
 ```
 
 | 단계 | 하는 일 | 산출물 |
 |---|---|---|
-| Discover | 자료를 찾는다 | source 후보 |
-| Check | 게시 적합성을 점검한다 | 진행, 문구 정리, 비게시, 보류 |
-| Scan | 우선순위를 정한다 | 빠른 판별 |
-| Analyze | 깊게 분석한다 | 분석문 |
-| Document | 이슈로 고정한다 | Study Issue |
-| Explain | 쉬운 댓글을 붙인다 | Explanation Comment |
-| Connect | 관련 자료와 연결한다 | 관련 이슈 링크 |
-| Close | 이해 완료 시 닫는다 | 완료 표시 |
+| Normalize | 입력을 source lock으로 고정한다 | canonical source, type, artifact, route |
+| Study Kernel | source type에 맞게 분석한다 | 분석문, 이슈 본문, 쉬운 댓글 |
+| Publish Gate | 공개 가능성과 완료 조건을 검증한다 | Issue, comment, related, reading-list, validator |
 
 ## 게시 적합성 점검
 
@@ -96,6 +111,19 @@ Discover -> Check -> Scan -> Analyze -> Document -> Explain -> Connect -> Close
 | 보류 | 이슈를 만들지 않음 |
 
 의심되면 공개 이슈를 만들지 말고 먼저 확인을 받는다.
+
+## Source Lock 규칙
+
+Source Lock이 없으면 이슈를 만들지 않는다.
+
+| 입력 | Source Lock 기준 |
+|---|---|
+| YouTube | 안정적인 digest artifact URL 또는 ID |
+| LinkedIn, Threads | 원자료 링크 또는 글 자체가 분석 대상이라는 명시 |
+| GitHub repo | repo URL, README, docs 또는 핵심 파일 |
+| 논문 | paper URL, PDF, arXiv, official page |
+| 제품 | 제품 URL, 화면, docs, pricing, API 또는 data boundary |
+| 아이디어 | 공개 원자료가 없으면 public issue 금지 |
 
 ## Issue 규칙
 
@@ -161,6 +189,7 @@ til/
 ├── README.md
 ├── .claude/
 │   └── skills/
+│       ├── study.md
 │       ├── study-gate.md
 │       ├── study-scan.md
 │       ├── study-analysis.md
