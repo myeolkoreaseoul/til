@@ -25,6 +25,16 @@ Discover -> Check -> Scan -> Analyze -> Document -> Explain -> Connect -> Close
 
 세부 규칙은 `CLAUDE.md`와 `.claude/skills/`를 따른다.
 
+## 검증
+
+이슈를 만들거나 고친 뒤에는 아래 명령이 통과해야 완료로 본다.
+
+```bash
+scripts/validate-study-issues.py --repo myeolkoreaseoul/til --limit 100
+```
+
+검증은 본문 시작, 필수 섹션, 본문 길이, 쉬운 설명 댓글 길이, 공개 저장소에 남기면 안 되는 표현을 확인한다.
+
 ## 표현 원칙
 
 문서는 한국어로 쓴다.
