@@ -15,10 +15,12 @@
 3. `/study-scan`으로 우선순위와 원자료 우선순위를 본다.
 4. `/study-analysis`로 원자료 기준 분석을 한다.
 5. 공개 이슈 본문으로 변환한다.
-6. `gh`로 이슈를 만든다.
-7. `/study-explain`으로 쉬운 설명 댓글을 붙인다.
-8. `scripts/validate-study-issues.py`를 실행한다.
-9. 검증 실패가 하나라도 있으면 완료로 보지 않고 본문 또는 댓글을 수정한다.
+6. `/study-explain`으로 쉬운 설명 댓글을 만든다.
+7. Public Issue Packet을 만든다.
+8. `scripts/validate-study-issues.py --title "<title>" --body-file <body-file> --comment-file <comment-file>`를 실행한다.
+9. 사용자에게 source, route, 제목, repo, preflight 결과만 보여주고 최종 승인을 받는다.
+10. 승인 후 `scripts/publish-study-issue.py --approved-by-user ...`만 실행한다.
+11. wrapper가 전체 validator를 통과해야 완료로 본다.
 
 ## 원자료 우선 규칙
 
@@ -62,9 +64,14 @@ LinkedIn, Threads, 블로그 공유글은 원자료가 아닐 수 있다. 안에
 | 댓글 길이 | 쉬운 설명 댓글 900자 이상 |
 | 원자료 우선 | 공유글이 pointer면 repo, 논문, 공식 문서, 제품 페이지를 먼저 봄 |
 | 내부 맥락 제거 | 공개 이슈에는 내부 채널, 내부 판정, 비공개 큐, 로컬 경로를 쓰지 않음 |
-| 검증 명령 | `scripts/validate-study-issues.py --repo myeolkoreaseoul/til --limit 100` |
+| 사전 검증 | `scripts/validate-study-issues.py --title "<title>" --body-file <body-file> --comment-file <comment-file>` |
+| 발행 명령 | `scripts/publish-study-issue.py --approved-by-user ...` |
 
 원자료 접근이 막힌 경우에는 허위로 내용을 늘리지 않는다. 차단 사유, 확인한 응답, 다시 확인할 항목을 명시한다.
+
+공개 이슈 발행에 `gh issue create`를 직접 쓰지 않는다.
+
+Public Issue Packet에는 승인 요청 문구, 게시 적합성 판단, 내부 수집 경로를 쓰지 않는다.
 
 ## 공개 이슈 본문 템플릿
 
@@ -135,20 +142,22 @@ LinkedIn, Threads, 블로그 공유글은 원자료가 아닐 수 있다. 안에
 **확신도**: 높음 / 중간 / 낮음
 ```
 
-## CLI 명령
+## 발행 명령
 
 ```bash
-gh issue create \
-  --repo myeolkoreaseoul/til \
+scripts/publish-study-issue.py \
   --title "[Project] {title}" \
+  --body-file <body-file> \
+  --comment-file <comment-file> \
   --label "project,in-progress,advanced" \
-  --body-file <body-file>
+  --approved-by-user
 ```
 
-## 생성 후 할 일
+이 명령은 사용자 최종 승인 뒤에만 실행한다.
 
-1. 쉬운 설명 댓글을 추가한다.
+## 발행 후 할 일
+
+1. wrapper 출력의 Issue URL을 확인한다.
 2. 대기 자료라면 `resources/reading-list.md`를 갱신한다.
 3. 관련 이슈가 있으면 서로 연결한다.
-4. `scripts/validate-study-issues.py --repo myeolkoreaseoul/til --limit 100`를 통과시킨다.
-5. 검증 결과를 완료 보고에 적는다.
+4. wrapper가 실행한 전체 validator 결과를 완료 보고에 적는다.

@@ -39,6 +39,7 @@
 - 원칙: source lock 없이 이슈를 만들지 않는다.
 - 원칙: YouTube는 안정적인 digest artifact가 없으면 이슈를 만들지 않는다.
 - 원칙: LinkedIn, Threads, 블로그 공유글은 원자료를 먼저 찾는다.
+- 원칙: 공개 이슈는 사용자 최종 승인 전에는 만들지 않는다.
 
 `/study`가 아래 내부 절차를 호출한다.
 
@@ -111,6 +112,20 @@ Normalize -> Study Kernel -> Publish Gate
 | 보류 | 이슈를 만들지 않음 |
 
 의심되면 공개 이슈를 만들지 말고 먼저 확인을 받는다.
+
+공개 이슈 발행은 두 단계로만 한다.
+
+| 단계 | 해야 할 일 |
+|---|---|
+| 발행 전 | source lock, route, 제목, 본문 파일, 쉬운 설명 댓글 파일, 관련 이슈 후보를 만든다 |
+| 사전 검증 | `scripts/validate-study-issues.py --title "<title>" --body-file issue-body.md --comment-file explanation-comment.md`를 통과시킨다 |
+| 승인 요청 | 사용자에게 source, route, 제목, 금지 표현 검사 결과, 발행할 repo만 보고한다 |
+| 발행 | 사용자 최종 승인 후 `scripts/publish-study-issue.py --approved-by-user ...`만 실행한다 |
+| 발행 후 | wrapper가 전체 validator를 통과시켜야 완료로 본다 |
+
+승인 요청 문구, 게시 적합성 판단, 내부 수집 경로는 이슈 본문이나 댓글에 쓰지 않는다.
+
+공개 이슈 발행에 `gh issue create`를 직접 쓰지 않는다.
 
 ## Source Lock 규칙
 

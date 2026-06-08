@@ -26,6 +26,18 @@ Normalize -> Study Kernel -> Publish Gate
 
 ## 검증
 
+이슈를 만들기 전에는 local packet을 먼저 검사한다.
+
+```bash
+scripts/validate-study-issues.py --title "<title>" --body-file issue-body.md --comment-file explanation-comment.md
+```
+
+공개 이슈 발행은 wrapper로만 한다.
+
+```bash
+scripts/publish-study-issue.py --title "<title>" --body-file issue-body.md --comment-file explanation-comment.md --approved-by-user
+```
+
 이슈를 만들거나 고친 뒤에는 아래 명령이 통과해야 완료로 본다.
 
 ```bash

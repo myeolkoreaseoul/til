@@ -14,6 +14,10 @@
 
 에이전트는 `study-gate`, `study-scan`, `study-analysis`, `study-to-issue`, `study-explain`를 사용자에게 직접 호출하라고 안내하지 않는다.
 
+메신저나 다른 채널에서 받은 링크와 메모도 같은 `/study` 입력으로 정규화한다.
+
+메시지 자체는 source가 아니라 source 후보를 담은 inbox다.
+
 ## 내부 workflow
 
 ```text
@@ -59,6 +63,23 @@ Normalize -> Study Kernel -> Publish Gate
 | 원장 | `resources/reading-list.md` 갱신 |
 | 검증 | `scripts/validate-study-issues.py --repo myeolkoreaseoul/til --limit 100` 통과 |
 
+공개 이슈 발행은 사용자 최종 승인 전에는 실행하지 않는다.
+
+| 단계 | 조건 |
+|---|---|
+| Public Issue Packet | 제목, 이슈 본문 파일, 쉬운 설명 댓글 파일, 관련 이슈 후보, reading-list 변경안을 만든다 |
+| Preflight | `scripts/validate-study-issues.py --title "<title>" --body-file issue-body.md --comment-file explanation-comment.md` 통과 |
+| Approval | 사용자에게 source, route, 제목, 검증 결과, 발행 repo만 보여주고 승인을 받는다 |
+| Publish | 승인 후 `scripts/publish-study-issue.py --approved-by-user ...`와 reading-list 갱신만 실행한다 |
+
+`public_til`은 후보 위치일 뿐 발행 권한이 아니다.
+
+Preflight에 실패하면 공개 발행 wrapper를 실행하지 않는다.
+
+공개 이슈 발행에 `gh issue create`를 직접 쓰지 않는다.
+
+wrapper가 전체 validator를 통과시켜야 완료로 본다.
+
 ## 금지
 
 | 금지 | 이유 |
@@ -68,3 +89,4 @@ Normalize -> Study Kernel -> Publish Gate
 | LinkedIn feed text만으로 단정 | 원자료와 의견이 섞임 |
 | 게시 적합성 판단문을 공개 이슈에 작성 | 공개 표면 오염 |
 | 검증 실패 후 완료 보고 | workflow 강제력 상실 |
+| 사용자 승인 전 공개 이슈 작성 | 공개 repo 권한 우회 |
