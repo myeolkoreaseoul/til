@@ -1,57 +1,51 @@
 ---
 name: "Paper Review"
-about: "Paper study and review"
+about: "논문 학습 및 리뷰"
 title: "[Paper] "
 labels: ["paper", "in-progress"]
 ---
 
-## Public/Private Gate
-- **Decision**:
-- **Reason**:
-- **Publication Target**:
+## 논문 정보
+- **제목:**
+- **저자:**
+- **연도:**
+- **링크:**
+- **코드:**
 
-## Paper Info
-- **Title:**
-- **Authors:**
-- **Year:**
-- **Link:**
-- **Code:**
+## 문제의식
+> 이 논문이 해결하려는 문제.
 
-## Problem
-> What problem does this paper solve.
+## 방법
+> 핵심 아이디어와 접근법.
 
-## Method
-> Core idea and approach.
+## 결과
+> 주요 실험 결과.
 
-## Results
-> Main results.
+## 분석 관점
+- **기법 분류:**
+- **다루는 구성요소:**
+- **운영 적용성:**
+- **연결 지점:**
 
-## Study Lens
-- **Technique Category:**
-- **Context Components:**
-- **Production Readiness:**
-- **Integration Points:**
-
-## Key Takeaways
+## 핵심 정리
 - [ ]
 - [ ]
 - [ ]
 
-## What I Can Copy
+## 적용 가능 요소
 - [ ]
 
-## What I Should Skip
+## 보류할 요소
 - [ ]
 
-## Related Work
-> Link related papers or issues with #N.
+## 관련 연구
+> 관련 논문이나 이슈를 #N으로 연결.
 
-## Personal Notes
-> Critical analysis, application ideas, and questions.
+## 개인 메모
+> 비판적 분석, 적용 아이디어, 의문점.
 
-## Checklist
-- [ ] Public/private gate passed.
-- [ ] First read complete.
-- [ ] Core concept understood.
-- [ ] Code or implementation checked.
-- [ ] Related material linked.
+## 체크리스트
+- [ ] 1차 확인 완료.
+- [ ] 핵심 개념 이해.
+- [ ] 코드 또는 구현 확인.
+- [ ] 관련 자료 연결.

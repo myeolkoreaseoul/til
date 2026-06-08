@@ -1,113 +1,113 @@
 # Study Explain Skill
 
-Explain a study issue so a beginner can understand it.
+학습 이슈를 초보자도 이해할 수 있게 설명하는 댓글을 작성한다.
 
-## Usage
+## 사용법
 
 ```text
 /study-explain <issue_number>
 ```
 
-Read the issue and add one explanation comment.
+이슈를 읽고 설명 댓글 하나를 추가한다.
 
-## Explanation Framework
+## 설명 틀
 
-### 1. Glossary
+### 1. 용어 사전
 
-Extract technical terms and define them with plain analogies.
+전문 용어를 쉬운 뜻과 일상 비유로 설명한다.
 
 ```markdown
-## Glossary
+## 용어 사전
 
-| Term | Plain Meaning | Everyday Analogy |
+| 용어 | 쉬운 뜻 | 일상 비유 |
 |---|---|---|
-| Context window | Text the model can see at once | A desk with limited space |
+| Context window | 모델이 한 번에 볼 수 있는 텍스트 범위 | 펼쳐놓을 수 있는 책상 크기 |
 ```
 
-### 2. Easy Explanation
+### 2. 쉬운 설명
 
-Explain each core concept simply.
+핵심 개념을 짧게 설명한다.
 
 ```markdown
-## Easy Explanation
+## 쉬운 설명
 
-### What is [concept].
+### [개념]이 무엇인가.
 
-**One-line summary**: [10 words or fewer]
+**한 줄 요약**: [10단어 이내]
 
-**Analogy**:
-[3-4 sentences]
+**비유**:
+[3-4문장]
 
-**Why it helps**:
-[problem solved]
+**왜 도움이 되는가**:
+[해결하는 문제]
 ```
 
-### 3. Visual Diagram
+### 3. 그림
 
-Use ASCII diagrams.
+ASCII diagram을 사용한다.
 
 ```markdown
-## Visual Diagram
+## 그림으로 이해하기
 
-### Before
-[problem state]
+### 이전
+[문제 상태]
 
-### After
-[improved state]
+### 이후
+[개선 상태]
 
-### Flow
-[step-by-step arrows]
+### 흐름
+[단계별 화살표]
 ```
 
-### 4. Step-by-Step Walkthrough
+### 4. 단계별 설명
 
-Break down the process.
+과정을 한 단계씩 분해한다.
 
 ```markdown
-## Step-by-Step
+## 단계별로 따라가기
 
-**Scenario**: [concrete example]
+**상황**: [구체적인 예시]
 
-**Step 1: [action]**
-- What happens:
-- Why:
-- Example:
+**1단계: [행동]**
+- 일어나는 일:
+- 이유:
+- 예시:
 ```
 
-### 5. Why It Matters
+### 5. 왜 중요한가
 
-Explain what becomes possible and where it can be used.
+이 자료가 무엇을 가능하게 하는지 설명한다.
 
-### 6. Common Misconceptions
+### 6. 자주 하는 오해
 
-Separate wrong interpretations from correct ones.
+잘못된 이해와 올바른 이해를 분리한다.
 
-### 7. Connections
+### 7. 연결해서 이해하기
 
-Connect the idea to known concepts or related issues.
+이미 아는 개념이나 관련 이슈와 연결한다.
 
-### 8. One-Page Summary
+### 8. 한 장 요약
 
-End with a boxed ASCII summary.
+마지막에 ASCII 박스로 요약한다.
 
-## Output Format
+## 출력 형식
 
 ```markdown
-# [Study Title] Easy Explanation
+# [학습 제목] 쉬운 설명
 
-> This comment explains the study issue in simpler terms.
+> 이 댓글은 이슈 본문을 더 쉽게 읽을 수 있도록 다시 설명한다.
 
-[sections above]
+[위 섹션]
 
 ---
-This explanation was generated with `/study-explain`.
+이 설명은 `/study-explain` 흐름으로 작성했다.
 ```
 
-## Quality Checklist
+## 품질 체크리스트
 
-- [ ] All important terms are explained.
-- [ ] Analogies are practical and not decorative.
-- [ ] ASCII diagram is readable.
-- [ ] Step-by-step section includes why each step exists.
-- [ ] Misconceptions are explicit.
-- [ ] Summary is short enough to scan.
+- [ ] 중요한 용어가 설명되어 있다.
+- [ ] 비유가 장식이 아니라 이해를 돕는다.
+- [ ] ASCII diagram이 읽힌다.
+- [ ] 단계별 설명에 이유가 포함되어 있다.
+- [ ] 오해 방지가 명시되어 있다.
+- [ ] 요약이 짧다.

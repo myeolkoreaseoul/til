@@ -1,53 +1,47 @@
 ---
 name: "Project Analysis"
-about: "Open source project or public product analysis"
+about: "오픈소스 프로젝트 또는 공개 제품 분석"
 title: "[Project] "
 labels: ["project", "in-progress"]
 ---
 
-## Public/Private Gate
-- **Decision**:
-- **Reason**:
-- **Publication Target**:
+## 프로젝트 정보
+- **이름:**
+- **저장소:**
+- **별:**
+- **언어:**
 
-## Project Info
-- **Name:**
-- **Repository:**
-- **Stars:**
-- **Language:**
+## 목적
+> 이 프로젝트가 해결하는 문제.
 
-## Purpose
-> What problem this project solves.
+## 구조
+> 주요 구조와 설계 패턴.
 
-## Architecture
-> Main structure and design patterns.
-
-## Key Features
+## 핵심 기능
 -
 -
 -
 
-## Study Lens
-- **Technique Category:**
-- **Context Components:**
-- **Production Readiness:**
-- **Integration Points:**
+## 분석 관점
+- **기법 분류:**
+- **다루는 구성요소:**
+- **운영 적용성:**
+- **연결 지점:**
 
-## Code Highlights
-> Important code or implementation details.
+## 코드에서 볼 지점
+> 주목할 구현이나 파일.
 
-## What I Can Copy
+## 적용 가능 요소
 - [ ]
 
-## What I Should Skip
+## 보류할 요소
 - [ ]
 
-## Contribution Ideas
-> Possible contribution points.
+## 기여 또는 실험 아이디어
+> 확인하거나 실험할 수 있는 지점.
 
-## Checklist
-- [ ] Public/private gate passed.
-- [ ] README analyzed.
-- [ ] Code structure checked.
-- [ ] Core features understood.
-- [ ] Contribution points identified.
+## 체크리스트
+- [ ] README 분석.
+- [ ] 코드 구조 확인.
+- [ ] 핵심 기능 이해.
+- [ ] 실험 또는 기여 지점 확인.

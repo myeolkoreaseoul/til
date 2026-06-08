@@ -1,172 +1,142 @@
 # Study Analysis Skill
 
-Deep analysis for public technical sources.
+공개 기술 자료를 깊게 분석한다.
 
-## Usage
+## 사용법
 
 ```text
 /study-analysis <source_url_or_artifact>
 ```
 
-## Analysis Framework
+## 6단계 분석 틀
 
-Follow this 6-level extraction framework.
+### 1. Metadata 추출
 
-### Level 1: Metadata Extraction
+- **제목**
+- **작성자 또는 소유자**
+- **자료 종류**
+- **게시일 또는 갱신일**
+- **링크**: 출처, 저장소, 릴리스, 문서, 논문, demo, package
+- **키워드**
 
-Extract:
+### 2. 문제 정의
 
-- **Title**
-- **Author or project owner**
-- **Source type**
-- **Published or updated date**
-- **Links**: source, repository, release, docs, paper, demo, package
-- **Keywords**
+다음 질문에 답한다.
 
-### Level 2: Problem Definition
-
-Answer:
-
-1. **Core Problem**: What specific problem does this solve.
-2. **Motivation**: Why this problem matters now.
-3. **Gap**: What existing approaches fail to do.
-4. **Study Question**: What I am trying to learn from it.
-
-### Level 3: Methodology or Architecture
-
-Extract in layers:
-
-#### 3.1 Intuitive Explanation
-
-Explain the core idea without jargon.
-
-#### 3.2 Technical Approach
-
-Describe architecture, workflow, algorithms, contracts, or implementation patterns.
-
-#### 3.3 Implementation Details
-
-Capture install path, commands, configuration, runtime boundary, dependencies, and project gates when available.
-
-### Level 4: Evidence and Results
-
-Extract:
-
-| Component | What to Extract |
+| 질문 | 쓸 내용 |
 |---|---|
-| Source evidence | README, release notes, docs, code, examples |
-| Changes or features | What changed or what exists |
-| Claims | What the source claims |
-| Verification path | How to verify or try it |
-| Failure cases | What the source warns about |
+| 핵심 문제 | 무엇을 해결하는가 |
+| 동기 | 왜 지금 중요한가 |
+| 기존 한계 | 기존 방식이 무엇을 못 했는가 |
+| 학습 질문 | 이 자료에서 무엇을 배우려 하는가 |
 
-### Level 5: Critical Analysis
+### 3. 방법 또는 구조
 
-Analyze:
+| 층 | 쓸 내용 |
+|---|---|
+| 직관 | 전문 용어 없이 핵심을 설명 |
+| 기술 접근 | 구조, workflow, algorithm, contract, 구현 패턴 |
+| 구현 메모 | 명령어, 설정, runtime 경계, dependency, 확인 지점 |
 
-#### 5.1 Strengths
+### 4. 근거와 결과
 
-What does this do well.
+| 구성 | 확인할 것 |
+|---|---|
+| 출처 근거 | README, release note, docs, code, examples |
+| 변경 또는 기능 | 무엇이 바뀌었거나 존재하는가 |
+| 주장 | 원자료가 무엇을 주장하는가 |
+| 검증 경로 | 어떻게 확인하거나 실험할 수 있는가 |
+| 한계 | 원자료가 경고하거나 부족한 부분 |
 
-#### 5.2 Weaknesses
+### 5. 비판적 분석
 
-What is missing, risky, immature, or unclear.
+| 항목 | 질문 |
+|---|---|
+| 강점 | 무엇을 잘하는가 |
+| 약점 | 무엇이 부족하거나 위험한가 |
+| 분석 관점 | 기법, 구성요소, 운영 적용성, 연결 지점 |
+| 질문 | 더 확인할 것은 무엇인가 |
 
-#### 5.3 Study Lens
+### 6. 실행 가능한 정리
 
-Classify:
+- 짧은 원문 근거
+- 관련 이슈
+- 적용 가능 요소
+- 보류할 요소
+- 다음 행동
 
-- Technique category: write, select, compress, isolate, evaluate, orchestrate, govern
-- Components: prompt, user input, memory, tool output, state, evidence, handoff
-- Production readiness
-- Integration points
-
-#### 5.4 Questions and Concerns
-
-What to ask, test, or watch later.
-
-### Level 6: Actionable Takeaways
-
-Extract:
-
-- Key quotes or short source claims, without overquoting
-- Related issues
-- What to copy
-- What to skip
-- Follow-up actions
-
-## Output Template
+## 출력 템플릿
 
 ```markdown
-# [Study Title]
+# [학습 제목]
 
 ## Metadata
-- **Source Type**:
-- **Author/Owner**:
-- **Published/Updated**:
-- **Links**:
+- **자료 종류**:
+- **작성자/소유자**:
+- **게시/갱신**:
+- **링크**:
 
-## TL;DR
-[2-3 sentence summary]
+## 요약
+[2-3문장]
 
-## Problem Definition
-**Core Problem**:
-**Motivation**:
-**Gap**:
-**Study Question**:
+## 문제 정의
+**핵심 문제**:
+**동기**:
+**기존 한계**:
+**학습 질문**:
 
-## How It Works
+## 작동 방식
 
-### Intuition
-[simple explanation]
+### 직관
+[쉬운 설명]
 
-### Technical Approach
-[architecture, workflow, contracts, implementation]
+### 기술 접근
+[구조, workflow, contract, 구현]
 
-### Implementation Notes
-[commands, configs, boundaries, dependencies]
+### 구현 메모
+[명령어, 설정, 경계, dependency]
 
-## Evidence
-| Source | Evidence |
+## 근거
+| 출처 | 근거 |
 |---|---|
 | | |
 
-## Critical Analysis
+## 비판적 분석
 
-### Strengths
+### 강점
 1.
 2.
 
-### Weaknesses
+### 약점
 1.
 2.
 
-### Study Lens
-- **Technique Category**:
-- **Components**:
-- **Production Readiness**:
-- **Integration Points**:
+### 분석 관점
+- **기법 분류**:
+- **구성요소**:
+- **운영 적용성**:
+- **연결 지점**:
 
-## What to Copy
+## 적용 가능 요소
 - [ ]
 
-## What to Skip
+## 보류할 요소
 - [ ]
 
-## Questions
+## 질문
 - [ ]
 
-## Connections
-- Related to:
+## 연결
+- 관련:
 
-## Action Items
+## 다음 행동
 - [ ]
 ```
 
-## Quality Checklist
+## 품질 체크리스트
 
-- [ ] All 6 levels are covered.
-- [ ] Source URLs are included.
-- [ ] Public/private gate has passed.
-- [ ] Actionable takeaways are specific.
-- [ ] Related issues are linked when available.
+- [ ] 6단계가 모두 들어갔다.
+- [ ] 출처 URL이 들어갔다.
+- [ ] 공개 이슈에 내부 점검 결과를 쓰지 않았다.
+- [ ] 적용 가능 요소가 구체적이다.
+- [ ] 관련 이슈가 있으면 연결했다.

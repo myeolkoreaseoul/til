@@ -1,47 +1,41 @@
 ---
 name: "Concept Study"
-about: "Concept study and review"
+about: "개념 학습 및 정리"
 title: "[Concept] "
 labels: ["concept", "in-progress"]
 ---
 
-## Public/Private Gate
-- **Decision**:
-- **Reason**:
-- **Publication Target**:
+## 개념
+> 학습할 개념.
 
-## Concept
-> Concept to study.
+## 배경
+> 이 개념이 왜 중요한가.
 
-## Background
-> Why this concept matters.
+## 핵심 아이디어
+> 핵심 내용 정리.
 
-## Core Ideas
-> Main ideas.
+## 예시
+> 구체적인 예시나 구현.
 
-## Examples
-> Concrete examples or implementation.
+## 분석 관점
+- **기법 분류:**
+- **다루는 구성요소:**
+- **운영 적용성:**
+- **연결 지점:**
 
-## Study Lens
-- **Technique Category:**
-- **Context Components:**
-- **Production Readiness:**
-- **Integration Points:**
-
-## What I Can Copy
+## 적용 가능 요소
 - [ ]
 
-## What I Should Skip
+## 보류할 요소
 - [ ]
 
-## Connections
-> Related concepts or issues with #N.
+## 연결
+> 관련 개념이나 이슈를 #N으로 연결.
 
-## Resources
+## 자료
 -
 
-## Checklist
-- [ ] Public/private gate passed.
-- [ ] Concept understood.
-- [ ] Example checked.
-- [ ] Practice or implementation completed.
+## 체크리스트
+- [ ] 개념 이해.
+- [ ] 예시 확인.
+- [ ] 실습 또는 구현.

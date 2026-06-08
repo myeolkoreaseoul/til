@@ -1,82 +1,67 @@
 # Study Gate Skill
 
-Classify whether a source can be documented in this public repository.
+자료를 이 저장소에 게시해도 되는지 내부적으로 점검하는 스킬이다.
 
-## Usage
+## 사용법
 
 ```text
 /study-gate <source_url_or_message>
 ```
 
-Run this before scan, analysis, issue creation, or comment publication.
+이 점검 결과는 공개 이슈 본문, 댓글, 제목, 라벨에 쓰지 않는다.
 
-## Gate Protocol
+## 점검 순서
 
-### Step 1: Source Identity
+### 1. 출처 확인
 
-Extract:
+다음을 확인한다.
 
-- Source URL or artifact path
-- Source type: paper, GitHub repo, release, product doc, post, video, private chat, internal note, or client work
-- Author or publisher
-- Publication status: public, restricted, paid, private, or unknown
+- 자료 URL 또는 파일 경로
+- 자료 종류: 논문, GitHub repo, 릴리스, 제품 문서, 글, 영상, 내부 자료, 고객 자료
+- 작성자 또는 발행자
+- 접근 상태: 공개, 제한, 유료, 비공개, 불명확
 
-### Step 2: Risk Questions
+### 2. 위험 질문
 
-Answer with YES, NO, or UNKNOWN.
+YES, NO, UNKNOWN으로 답한다.
 
-| Question | Answer | Notes |
+| 질문 | 답 | 메모 |
 |---|---|---|
-| Is the source publicly accessible. | | |
-| Is the source technical or educational. | | |
-| Can the source be cited directly. | | |
-| Does the source include private chat, client data, secrets, or credentials. | | |
-| Would publishing reveal an internal imitation or copying intent. | | |
-| Would publishing create avoidable personal or reputational risk. | | |
+| 누구나 접근 가능한 공개 자료인가 | | |
+| 직접 출처를 걸 수 있는가 | | |
+| 기술 학습이나 교육 목적에 맞는가 | | |
+| 비밀값, 고객 정보, 비공개 대화가 포함되는가 | | |
+| 공개하면 내부 운영 의도가 드러나는가 | | |
+| 공개했을 때 불필요한 평판 위험이 있는가 | | |
 
-### Step 3: Decision
+### 3. 내부 판정
 
-Place in one category.
-
-- **PUBLIC APPROVED**: Public, citeable, technical, and safe.
-- **PUBLIC WITH CARE**: Public source, but wording must avoid private intent or sensitive framing.
-- **PRIVATE REQUIRED**: Useful but unsafe for public issue.
-- **SKIP**: Not worth documenting or not enough source evidence.
-
-### Step 4: Publication Rule
-
-- `PUBLIC APPROVED`: issue may be created in this repo.
-- `PUBLIC WITH CARE`: issue may be created only after removing private context from title, body, labels, and comments.
-- `PRIVATE REQUIRED`: do not create an issue in this repo. Use a private repo or private document.
-- `SKIP`: do not create an issue.
-
-## Output Format
-
-```markdown
-# Study Gate: [Source]
-
-**Decision**: [PUBLIC APPROVED / PUBLIC WITH CARE / PRIVATE REQUIRED / SKIP]
-**Reason**: [one sentence]
-**Publication Target**: [public til / private repo / no publication]
-
-## Source Identity
-- **Type**:
-- **Author/Publisher**:
-- **URL**:
-- **Public Status**:
-
-## Risk Check
-| Question | Answer | Notes |
+| 판정 | 의미 | 다음 행동 |
 |---|---|---|
-| Publicly accessible | | |
-| Citeable | | |
-| Private or sensitive content | | |
-| Internal copying intent exposed | | |
-| Reputational risk | | |
+| 게시 가능 | 공개 자료이고 출처를 직접 걸 수 있음 | 이슈 작성 가능 |
+| 문구 주의 | 공개 자료지만 표현을 정리해야 함 | 내부 맥락 제거 후 이슈 작성 |
+| 비공개 필요 | 자료는 유용하지만 public repo에 부적합 | 이 저장소에 작성하지 않음 |
+| 보류 | 근거가 부족하거나 가치가 낮음 | 이슈를 만들지 않음 |
 
-## Required Edits Before Publishing
-- [ ] Remove private channel names.
-- [ ] Remove internal agent names unless technically relevant and public.
-- [ ] Cite public source URLs only.
-- [ ] Keep commentary about what to copy framed as technical learning.
-```
+## 출력 규칙
+
+공개 이슈에는 아래 항목만 남긴다.
+
+- 출처
+- 요약
+- 문제의식
+- 작동 방식
+- 분석 관점
+- 강점과 약점
+- 적용 가능 요소
+- 보류할 요소
+- 관련 이슈
+- 다음 행동
+
+공개 이슈에 쓰지 않는 항목은 다음과 같다.
+
+- 내부 판정 결과
+- 내부 게시 판단 경로
+- 비공개 자료를 걸러냈다는 설명
+- 내부 작업 의도
+- 사전 점검 문답표

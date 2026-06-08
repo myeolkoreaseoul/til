@@ -1,7 +1,7 @@
-# Reading List
+# 읽을 자료 목록
 
-This file keeps public technical sources that are queued or documented as GitHub issues.
+이 파일은 공개 가능한 기술 자료 중 대기 중이거나 이슈로 정리된 항목을 관리한다.
 
-| Status | Source | Type | Issue | Notes |
+| 상태 | 자료 | 종류 | 이슈 | 메모 |
 |---|---|---|---|---|
-| Documented | Gajae-Code v0.4.0 release | Project release | #1 | First public study workflow test |
+| 문서화 | Gajae-Code v0.4.0 릴리스 | 프로젝트 릴리스 | #1 | 첫 공개 학습 workflow 테스트 |

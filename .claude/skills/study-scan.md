@@ -1,81 +1,79 @@
 # Study Scan Skill
 
-Quick source triage to decide if a source is worth a full study issue.
+자료를 깊게 다룰 가치가 있는지 빠르게 판단한다.
 
-## Usage
+## 사용법
 
 ```text
 /study-scan <source_url_or_artifact>
 ```
 
-## Quick Scan Protocol
+## 빠른 판별 순서
 
-### Step 1: 30-Second Overview
+### 1. 30초 확인
 
-Read only:
+다음만 빠르게 본다.
 
-- Title
-- Summary, abstract, release heading, or README opening
-- Section headings
-- Figures, tables, or changelog bullets
-- Repository metadata when relevant
+- 제목
+- 요약, abstract, 릴리스 제목, README 첫 부분
+- 섹션 제목
+- 표, 그림, changelog bullet
+- 저장소 metadata
 
-### Step 2: Triage Questions
+### 2. 판별 질문
 
-Answer with YES, NO, or MAYBE.
+YES, NO, MAYBE로 답한다.
 
-| Question | Answer | Notes |
+| 질문 | 답 | 메모 |
 |---|---|---|
-| Is this relevant to AI agents, automation, software operations, accounting, tax, or regulation work. | | |
-| Is there a novel contribution or useful pattern. | | |
-| Is code, paper, docs, or release evidence available. | | |
-| Is the author, venue, project, or artifact credible enough to study. | | |
-| Is this useful for current systems or future practice. | | |
+| AI agent, 자동화, 소프트웨어 운영, 회계, 세무, 규정 업무와 관련되는가 | | |
+| 새롭거나 유용한 패턴이 있는가 | | |
+| 코드, 논문, 문서, 릴리스 근거가 있는가 | | |
+| 작성자, venue, 프로젝트, artifact가 학습할 만큼 신뢰 가능한가 | | |
+| 현재 시스템이나 미래 실무에 도움이 되는가 | | |
 
-### Step 3: Categorize
+### 3. 분류
 
-Place in one category.
+| 분류 | 뜻 |
+|---|---|
+| 반드시 다룸 | 관련성, 새로움, 적용성이 모두 높음 |
+| 다룰 만함 | 유용한 패턴이나 참고 자료 |
+| 훑기 | 배경지식 수준 |
+| 보류 | 관련성이나 근거가 부족함 |
 
-- **MUST STUDY**: High relevance, novel, and directly applicable.
-- **SHOULD STUDY**: Useful pattern or reference.
-- **SKIM**: Background knowledge, not urgent.
-- **SKIP**: Not relevant enough or not safe enough.
-
-### Step 4: Priority Score
-
-Calculate priority from 1 to 10.
+### 4. 우선순위 점수
 
 ```text
-Relevance (0-4):
-Novelty (0-3):
-Practical applicability (0-3):
-TOTAL:
+관련성 (0-4):
+새로움 (0-3):
+적용성 (0-3):
+합계:
 ```
 
-## Output Format
+## 출력 형식
 
 ```markdown
-# Study Scan: [Title]
+# 빠른 판별: [제목]
 
-**Quick Verdict**: [MUST STUDY / SHOULD STUDY / SKIM / SKIP]
-**Priority Score**: X/10
-**Time Investment**: [estimated hours]
+**판정**: [반드시 다룸 / 다룰 만함 / 훑기 / 보류]
+**우선순위**: X/10
+**예상 시간**: [예상 소요]
 
-## 30-Second Summary
-[2 sentences max]
+## 30초 요약
+[두 문장 이내]
 
-## Relevance
-[1 sentence on why this matters]
+## 관련성
+[왜 중요한지 한 문장]
 
-## Evidence
-- Source:
-- Code/docs:
-- Release/paper:
+## 근거
+- 출처:
+- 코드/문서:
+- 릴리스/논문:
 
-## Decision
-[Study now / queue for later / skip]
+## 결정
+[지금 다룸 / 나중에 큐에 넣음 / 보류]
 
-## If Studying, Focus On
-- Section or artifact:
-- Reason:
+## 볼 지점
+- 항목:
+- 이유:
 ```
